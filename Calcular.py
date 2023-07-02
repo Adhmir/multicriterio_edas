@@ -26,14 +26,14 @@ def main():
     global listacategorias, listaNormalizarMaior, listaNormalizarMenor
 
     st.set_page_config(
-        page_title="ApoioDecisao",
+        page_title="DecisionSupport",
         page_icon='📈'
     )
 
     st.title('Evaluation based on distance from average solution (EDAS)')
     st.sidebar.success('Menu')
 
-    st.sidebar.subheader("Escolha seu arquivo")
+    st.sidebar.subheader("Choose your file")
     cont = st.container()
     col1, col2, col3 = st.columns(3)
     cont2 = st.container()
@@ -45,7 +45,7 @@ def main():
     cont5 = st.container()
     
     
-    arquivoUpload = st.sidebar.file_uploader(label="Upload arquivo de xlsx",  ) 
+    arquivoUpload = st.sidebar.file_uploader(label="Upload xlsx",  ) 
     
     if arquivoUpload is not None:
        
@@ -58,16 +58,16 @@ def main():
             cont.dataframe(df)
         except Exception as e:
             print(e)
-            st.write('Por favor faça o upload dos seus dados')
-        opcoes1 = col1.multiselect('Selecione as colunas de controle', df.columns)
+            st.write('Please upload your data')
+        opcoes1 = col1.multiselect('Select control columns', df.columns)
         listacategorias = opcoes1
-        opcoes2 = col2.multiselect('Normalizar MAIOR MELHOR', df.drop(opcoes1, axis=1).columns)
+        opcoes2 = col2.multiselect('Normalize BIGGER BETTER', df.drop(opcoes1, axis=1).columns)
         listaNormalizarMaior = opcoes2
 
-        opcoes3 = col3.multiselect('Normalizar MENOR MELHOR',  df.drop(opcoes1+opcoes2, axis=1).columns)
+        opcoes3 = col3.multiselect('normalize LOWER BETTER',  df.drop(opcoes1+opcoes2, axis=1).columns)
         listaNormalizarMenor = opcoes3
         
-        btnCalcular = cont4.button('Calcular')
+        btnCalcular = cont4.button('Calculate')
         
         if btnCalcular: 
             try:
@@ -87,14 +87,14 @@ def main():
                 cont5.dataframe(metododp2.style.highlight_max(axis=0))
                     
                 st.download_button(
-                        label= "Baixar resultados",
+                        label= "Download",
                         data= criar_excel(metododp2),
-                        file_name ='resultados.xlsx',
+                        file_name ='EDAS.xlsx',
                         mime="application/vnd.ms-excel",)               
                 
                                  
             except Exception as e:
-                st.write('Por favor confira as colunas selecionadas.')
+                st.write('Please check selected columns.')
         
 def criar_excel(dados):
     buffer = io.BytesIO()
@@ -107,7 +107,7 @@ def LstPesosConstante(tam):
     wth = list([1]*len(tam.columns))
     dfConstante = pd.DataFrame(wth).transpose()
     dfConstante.columns = colunas
-    dfConstante.index = ['Pesos']
+    dfConstante.index = ['W']
     
     
     return dfConstante, wth
