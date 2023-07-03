@@ -31,7 +31,7 @@ def main():
     )
  
     st.title('MULTIPLE CRITERA PERFORMANCE MEASURES - EDAS')
-    st.subhearder('EVALUATION BASED ON DISTANCE FROM AVERAGE SOLUTION (EDAS)')
+    st.subheader('EVALUATION BASED ON DISTANCE FROM AVERAGE SOLUTION (EDAS)')
     st.sidebar.success('Menu')
 
     st.sidebar.subheader("Choose your file")
