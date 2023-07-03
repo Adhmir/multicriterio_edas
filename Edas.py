@@ -30,7 +30,7 @@ def main():
         page_icon='📈'
     )
 
-    st.title('Evaluation based on distance from average solution (EDAS)')
+    st.title('EVALUATION BASED ON DISTANCE FROM AVERAGE SOLUTION (EDAS)')
     st.sidebar.success('Menu')
 
     st.sidebar.subheader("Choose your file")
