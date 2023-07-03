@@ -9,7 +9,7 @@ st.set_page_config(
 
 st.title('How cite us')
 cont1 =st.container()
-cont1.write('Gomes, A. R. V. & Hein, N. (2023). Multiple Criteria Perfomance Measures - EDAS [Web streamlit app]. https://decisionsupport-adriana.streamlit.app/')
+cont1.write('Gomes, A. R. V. & Hein, N. (2023). Multiple Criteria Perfomance Measures - EDAS [Web streamlit app]. https://decisionsupport-edas.streamlit.app/')
 
             
 st.subheader('About the Authors')
