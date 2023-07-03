@@ -29,8 +29,9 @@ def main():
         page_title="DecisionSupport",
         page_icon='📈'
     )
-
-    st.title('EVALUATION BASED ON DISTANCE FROM AVERAGE SOLUTION (EDAS)')
+ 
+    st.title('MULTIPLE CRITERA PERFORMANCE MEASURES - EDAS')
+    st.subhearder('EVALUATION BASED ON DISTANCE FROM AVERAGE SOLUTION (EDAS)')
     st.sidebar.success('Menu')
 
     st.sidebar.subheader("Choose your file")
